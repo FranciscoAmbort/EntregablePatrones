@@ -5,6 +5,6 @@ public class BoatShippingStrategy implements ShippingStrategy{
     @Override
     public double calculateCost(double weight, double length, double width, double height, String origin, String Destination) {
         double volume = length*width*height;
-        return weight*2 + volume*0.5;
+        return weight*0.2 + volume*0.1;
     }
 }

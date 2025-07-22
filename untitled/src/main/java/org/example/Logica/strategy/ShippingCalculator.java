@@ -2,23 +2,23 @@ package org.example.Logica.strategy;
 
 public class ShippingCalculator {
 
-    private  double weight;
-    private  double length;
-    private  double width;
-    private  double height;
-    private  String origin;
-    private  String destination;
-    private  ShippingStrategy strategy;
+    private final double weight;
+    private final double length;
+    private final double width;
+    private final double height;
+    private final String origin;
+    private final String destination;
+    private final ShippingStrategy strategy;
 
     public ShippingCalculator(double weight, double length, double width, double height,
                               String origin, String destination, ShippingStrategy strategy) {
-        weight = weight;
-        length = length;
-        width = width;
-        height = height;
-        origin = origin;
-        destination = destination;
-        strategy = strategy;
+        this.weight = weight;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.origin = origin;
+        this.destination = destination;
+        this.strategy = strategy;
     }
 
     public double calculateCost() {
