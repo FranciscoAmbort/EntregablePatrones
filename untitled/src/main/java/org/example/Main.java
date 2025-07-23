@@ -63,16 +63,9 @@ public class Main {
         CompletableFuture<Boolean> payment = shippingCost.thenApplyAsync(cost -> {
             System.out.println("Costo calculado:" + cost);
 
-            PaymentGateway gateway;
-            PaymentProcessor processor;
-            if (proveedor == 1){
-                gateway = new PaypalGateway();
-                processor = new PaypalPaymentProcessor(gateway);
-            }else {
-                gateway = new MercadoPagoGateway();
-                processor = new MercadoPagoPaymentProcessor(gateway);
-            }
-            return processor.processPayment(cost);
+            PaymentManager paymentManager = new PaymentManager();
+            PaymentProcessor paymentProcessor = paymentManager.SelectProcessor(proveedor);
+            return paymentProcessor.processPayment(cost);
         });
 
         try {
